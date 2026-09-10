@@ -1,0 +1,251 @@
+{
+  "rated_capacity_ah": 2.0,
+  "eol_fraction": 0.7,
+  "soh_bins_pct": [
+    0,
+    65,
+    80,
+    200
+  ],
+  "soh_labels": [
+    "Critical",
+    "Degrading",
+    "Healthy"
+  ],
+  "rul_bin_edges_cycles": [
+    18.0,
+    71.0
+  ],
+  "rul_labels": [
+    "Short",
+    "Medium",
+    "Long"
+  ],
+  "n_discharge_cycles": 636,
+  "class_balance": {
+    "soh_class": {
+      "Degrading": 319,
+      "Healthy": 283,
+      "Critical": 34
+    },
+    "rul_class": {
+      "Short": 213,
+      "Medium": 212,
+      "Long": 211
+    }
+  },
+  "soh_results": {
+    "LogisticRegression": {
+      "accuracy": 0.9040880503144654,
+      "f1_weighted": 0.8969422096154042,
+      "precision_weighted": 0.9050806794753272,
+      "recall_weighted": 0.9040880503144654,
+      "confusion_matrix": [
+        [
+          12,
+          22,
+          0
+        ],
+        [
+          1,
+          286,
+          32
+        ],
+        [
+          0,
+          6,
+          277
+        ]
+      ],
+      "labels": [
+        "Critical",
+        "Degrading",
+        "Healthy"
+      ]
+    },
+    "DecisionTree": {
+      "accuracy": 0.960691823899371,
+      "f1_weighted": 0.9606611445595695,
+      "precision_weighted": 0.9606760616582686,
+      "recall_weighted": 0.960691823899371,
+      "confusion_matrix": [
+        [
+          29,
+          5,
+          0
+        ],
+        [
+          5,
+          305,
+          9
+        ],
+        [
+          0,
+          6,
+          277
+        ]
+      ],
+      "labels": [
+        "Critical",
+        "Degrading",
+        "Healthy"
+      ]
+    },
+    "RandomForest": {
+      "accuracy": 0.960691823899371,
+      "f1_weighted": 0.9606398397464726,
+      "precision_weighted": 0.9607144267961027,
+      "recall_weighted": 0.960691823899371,
+      "confusion_matrix": [
+        [
+          29,
+          5,
+          0
+        ],
+        [
+          5,
+          304,
+          10
+        ],
+        [
+          0,
+          5,
+          278
+        ]
+      ],
+      "labels": [
+        "Critical",
+        "Degrading",
+        "Healthy"
+      ]
+    }
+  },
+  "soh_classification_reports": {
+    "LogisticRegression": "              precision    recall  f1-score   support\n\n    Critical       0.92      0.35      0.51        34\n   Degrading       0.91      0.90      0.90       319\n     Healthy       0.90      0.98      0.94       283\n\n    accuracy                           0.90       636\n   macro avg       0.91      0.74      0.78       636\nweighted avg       0.91      0.90      0.90       636\n",
+    "DecisionTree": "              precision    recall  f1-score   support\n\n    Critical       0.85      0.85      0.85        34\n   Degrading       0.97      0.96      0.96       319\n     Healthy       0.97      0.98      0.97       283\n\n    accuracy                           0.96       636\n   macro avg       0.93      0.93      0.93       636\nweighted avg       0.96      0.96      0.96       636\n",
+    "RandomForest": "              precision    recall  f1-score   support\n\n    Critical       0.85      0.85      0.85        34\n   Degrading       0.97      0.95      0.96       319\n     Healthy       0.97      0.98      0.97       283\n\n    accuracy                           0.96       636\n   macro avg       0.93      0.93      0.93       636\nweighted avg       0.96      0.96      0.96       636\n"
+  },
+  "soh_feature_importance_rf": {
+    "time_to_3v_s": 0.24679841871847946,
+    "energy_wh": 0.23458036209751149,
+    "duration_s": 0.14780347251175313,
+    "mean_voltage": 0.10752026017637623,
+    "std_temperature": 0.07927780834520243,
+    "mean_current": 0.06143582228527998,
+    "std_current": 0.056969764404159226,
+    "voltage_drop_rate": 0.02615961554345615,
+    "max_temperature": 0.011731303058572812,
+    "mean_temperature": 0.009785985618442756,
+    "max_voltage": 0.009068148033726077,
+    "std_voltage": 0.005627672109221654,
+    "min_voltage": 0.003241367097818486,
+    "ambient_temperature": 0.0
+  },
+  "rul_results": {
+    "LogisticRegression": {
+      "accuracy": 0.6776729559748428,
+      "f1_weighted": 0.6750640672777076,
+      "precision_weighted": 0.6964229372305089,
+      "recall_weighted": 0.6776729559748428,
+      "confusion_matrix": [
+        [
+          191,
+          22,
+          0
+        ],
+        [
+          74,
+          117,
+          21
+        ],
+        [
+          1,
+          87,
+          123
+        ]
+      ],
+      "labels": [
+        "Short",
+        "Medium",
+        "Long"
+      ]
+    },
+    "DecisionTree": {
+      "accuracy": 0.8238993710691824,
+      "f1_weighted": 0.8239746170294149,
+      "precision_weighted": 0.837861100970257,
+      "recall_weighted": 0.8238993710691824,
+      "confusion_matrix": [
+        [
+          201,
+          12,
+          0
+        ],
+        [
+          12,
+          180,
+          20
+        ],
+        [
+          0,
+          68,
+          143
+        ]
+      ],
+      "labels": [
+        "Short",
+        "Medium",
+        "Long"
+      ]
+    },
+    "RandomForest": {
+      "accuracy": 0.85062893081761,
+      "f1_weighted": 0.8504745703356863,
+      "precision_weighted": 0.856701067774703,
+      "recall_weighted": 0.85062893081761,
+      "confusion_matrix": [
+        [
+          204,
+          9,
+          0
+        ],
+        [
+          23,
+          175,
+          14
+        ],
+        [
+          0,
+          49,
+          162
+        ]
+      ],
+      "labels": [
+        "Short",
+        "Medium",
+        "Long"
+      ]
+    }
+  },
+  "rul_classification_reports": {
+    "LogisticRegression": "              precision    recall  f1-score   support\n\n       Short       0.72      0.90      0.80       213\n      Medium       0.52      0.55      0.53       212\n        Long       0.85      0.58      0.69       211\n\n    accuracy                           0.68       636\n   macro avg       0.70      0.68      0.67       636\nweighted avg       0.70      0.68      0.68       636\n",
+    "DecisionTree": "              precision    recall  f1-score   support\n\n       Short       0.94      0.94      0.94       213\n      Medium       0.69      0.85      0.76       212\n        Long       0.88      0.68      0.76       211\n\n    accuracy                           0.82       636\n   macro avg       0.84      0.82      0.82       636\nweighted avg       0.84      0.82      0.82       636\n",
+    "RandomForest": "              precision    recall  f1-score   support\n\n       Short       0.90      0.96      0.93       213\n      Medium       0.75      0.83      0.79       212\n        Long       0.92      0.77      0.84       211\n\n    accuracy                           0.85       636\n   macro avg       0.86      0.85      0.85       636\nweighted avg       0.86      0.85      0.85       636\n"
+  },
+  "rul_feature_importance_rf": {
+    "time_to_3v_s": 0.2181444192968983,
+    "energy_wh": 0.184402339082454,
+    "mean_voltage": 0.1262779270760171,
+    "duration_s": 0.12026638364482536,
+    "mean_current": 0.10040789067702505,
+    "std_current": 0.0766877004210972,
+    "voltage_drop_rate": 0.04036556176078038,
+    "std_temperature": 0.03574709298934825,
+    "max_voltage": 0.027184596652290078,
+    "std_voltage": 0.01855142000853627,
+    "mean_temperature": 0.017930389402234126,
+    "max_temperature": 0.01747303518601874,
+    "min_voltage": 0.01656124380247519,
+    "ambient_temperature": 0.0
+  }
+}
