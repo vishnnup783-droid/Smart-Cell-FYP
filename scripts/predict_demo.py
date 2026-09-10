@@ -23,19 +23,17 @@ from classical_soh_rul import (
 
 # ============================== INPUT ======================================
 # Today's cranking-test reading (replace with real sensor values later).
-V_REST = 12.2       # resting voltage just before cranking (V)
-V_MIN = 10.8         # minimum voltage during the cranking event (V)
-I_CRANK = 40         # cranking current (A)
-TEMP_C = 25          # ambient temperature (C)
+V_REST = 12.0
+V_MIN = 10.4
+I_CRANK = 35
+TEMP_C = 25
 
-# Recent SOH history, as (days_ago, soh_pct) — needed to predict RUL from a trend.
-# Replace with real past readings once you're logging them from the hardware.
 HISTORY = [
-    (90, 90.0),
-    (60, 85.0),
-    (30, 80.0),
-    (15, 76.0),
-    (5, 73.0),
+    (60, 75.0),
+    (45, 68.0),
+    (30, 62.0),
+    (15, 58.0),
+    (5, 56.0),
 ]
 # ============================================================================
 
