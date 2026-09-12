@@ -1,17 +1,4 @@
-"""
-SmartCell — offline demo GUI for the classical SOH/RUL estimator.
 
-Lets you type in battery-test numbers by hand (no ESP32/hardware needed) and
-see predicted SOH% and RUL come out, using the exact same estimator functions
-in classical_soh_rul.py that would run on the real device. Good for a panel
-demo: no internet, no server, just `python scripts/demo_gui.py`.
-
-Two steps, matching how the real estimator works:
-  1. Enter today's cranking-test reading -> computes today's SOH%.
-  2. Review/edit the recent SOH history (pre-filled with an example
-     degrading trend) -> computes RUL by fitting a trend line to SOH-over-time
-     and extrapolating to the 70% end-of-life threshold.
-"""
 
 import tkinter as tk
 from datetime import datetime, timedelta
