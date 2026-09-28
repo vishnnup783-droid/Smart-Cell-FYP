@@ -67,9 +67,14 @@ def internal_resistance_ohms(v_rest: float, v_min_during_crank: float, i_crank_a
     return (v_rest - v_min_during_crank) / i_crank_a
 
 
-def soh_from_resistance(r_ohms: float, temp_c: float) -> float:
-    """Internal resistance -> SOH (%), temperature-compensated against a new-battery baseline."""
-    r_new_at_temp = R_NEW_OHMS * (1 + R_TEMP_COEFF_PER_C * (REFERENCE_TEMP_C - temp_c))
+def soh_from_resistance(r_ohms: float, temp_c: float, r_new_ohms: float = R_NEW_OHMS) -> float:
+    """Internal resistance -> SOH (%), temperature-compensated against a new-battery baseline.
+
+    r_new_ohms defaults to the calibrated constant above, but callers that
+    self-calibrate their own baseline (e.g. "first reading = 100% SOH" on a
+    live device with no factory baseline) can pass their own.
+    """
+    r_new_at_temp = r_new_ohms * (1 + R_TEMP_COEFF_PER_C * (REFERENCE_TEMP_C - temp_c))
     soh = 100.0 * (r_new_at_temp / r_ohms)
     return max(0.0, min(100.0, soh))
 
